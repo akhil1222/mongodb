@@ -1,5 +1,3 @@
-# mongodb
-
 import com.mongodb.MongoClient;
 import com.mongodb.MongoException;
 import com.mongodb.WriteConcern;
@@ -26,7 +24,7 @@ public class MongoDBJDBC {
          // Connecting to databases
          
          DB db = mongoClient.getDB( "test" );
-         System.out.println("Connect to database successfully");
+         System.out.println("Connected to database successfully");
 	 boolean auth = db.authenticate(myUserName, myPassword);
          System.out.println("Authentication: "+auth);  
          
