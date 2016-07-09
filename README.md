@@ -19,20 +19,25 @@ public class MongoDBJDBC {
 	
       try{   
 		
-         // To connect to mongodb server
+         // Connecting to mongodb server
+         
          MongoClient mongoClient = new MongoClient( "localhost" , 27017 );
 			
-         // Now connect to your databases
+         // Connecting to databases
+         
          DB db = mongoClient.getDB( "test" );
          System.out.println("Connect to database successfully");
-			
-         boolean auth = db.authenticate(myUserName, myPassword);
+	 boolean auth = db.authenticate(myUserName, myPassword);
          System.out.println("Authentication: "+auth);  
+         
+         // Creating collection
+         
          DBCollection coll = db.createCollection("Twitter");
-         System.out.println("Collection created successfully");
          DBCollection coll = db.getCollection("Twitter");
-         System.out.println("Collection Twitter selected successfully");
-			   BasicDBObject tweet1 = new BasicDBObject("Tweet 1", "Introducing @Truebluebrand to the world was an amazing experience! A truly global fashion brand with an Indian soul.").
+         
+         // Inserting tweets into collection
+         
+	    BasicDBObject tweet1 = new BasicDBObject("Tweet 1", "Introducing @Truebluebrand to the world was an amazing experience! A truly global fashion brand with an Indian soul.").
             append("date", "july 1,2016").
             append("likes", 2600).
             coll.insert(tweet1);
@@ -77,14 +82,19 @@ public class MongoDBJDBC {
             append("likes", 9600).
             coll.insert(tweet11);
          System.out.println("Tweets inserted successfully");
+         
+         // Displaying all the entered tweets
+         
+          DBCursor cursor = coll.find();
+         int i = 1;
+         while (cursor.hasNext()) { 
+            System.out.println("Inserted Document: "+i); 
+            System.out.println(cursor.next()); 
+            i++;
+         }
       }catch(Exception e){
          System.err.println( e.getClass().getName() + ": " + e.getMessage() );
       }
    }
 }
-When program is compiled and executed, it will produce the following result −
 
-Connect to database successfully
-Authentication: true
-Collection mycol selected successfully
-Document inserted successfully
