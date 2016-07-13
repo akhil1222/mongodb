@@ -32,7 +32,7 @@ public class MongoDb {
 
             // Inserting tweets into collection
 
-            BasicDBObject tweet1 = new BasicDBObject("Tweet 1", "Introducing @Truebluebrand to the world was an amazing experience! A truly global fashion brand with an Indian soul.").
+            BasicDBObject tweet1 = new BasicDBObject("Tweet 1", "Introducing Truebluebrand to the world was an amazing experience! A truly global fashion brand with an Indian soul.").
                     append("date", "july 1,2016").
                     append("likes", 2600);
                     coll.insert(tweet1);
@@ -72,7 +72,7 @@ public class MongoDb {
                     append("date", "july 7, 2016").
                     append("likes", 10000);
                     coll.insert(tweet10);
-            BasicDBObject tweet11 = new BasicDBObject("Tweet 11","Happy Birthday Dada, May all your dreams come true!! SGanguly99").
+            BasicDBObject tweet11 = new BasicDBObject("Tweet 11","Happy Birthday Dada, May all your dreams come true!! SGanguly").
                     append("date", "july 8, 2016").
                     append("likes", 9600);
                     coll.insert(tweet11);
